@@ -1,0 +1,15 @@
+{
+  "order": [
+    "local",
+    "auto",
+    "pet",
+    "food",
+    "professional",
+    "health",
+    "industrial",
+    "agriculture",
+    "beauty",
+    "landscaping",
+    "tech-retail"
+  ]
+}

@@ -1,0 +1,802 @@
+[
+  {
+    "id": "nexora-blue",
+    "label": "Nexora Azul",
+    "suitedTo": "Padrão da agência, tecnologia e serviços",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 14,
+      "density": "regular",
+      "primaryColor": "#1B4FE0",
+      "secondaryColor": "#0A1F44",
+      "accentColor": "#12D3E8",
+      "surfaceColor": "#F2F5FC",
+      "foregroundColor": "#0B1220",
+      "mutedColor": "#5B6577",
+      "borderColor": "#E1E7F3",
+      "headingFont": "Sora",
+      "bodyFont": "Inter",
+      "archetype": "tech",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "landscape",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "regular",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "grid"
+      }
+    }
+  },
+  {
+    "id": "torque-orange",
+    "label": "Torque Laranja",
+    "suitedTo": "Oficinas, funilaria, mecânica pesada",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 10,
+      "density": "regular",
+      "primaryColor": "#E5471B",
+      "secondaryColor": "#16202B",
+      "accentColor": "#F5C518",
+      "surfaceColor": "#F6F3F0",
+      "foregroundColor": "#14181D",
+      "mutedColor": "#5E6670",
+      "borderColor": "#E6E1DB",
+      "headingFont": "Archivo",
+      "bodyFont": "Inter",
+      "archetype": "industrial",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "none"
+      },
+      "layout": {
+        "container": "wide",
+        "gridStyle": "technical",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "high-contrast",
+        "preferredRatio": "landscape",
+        "overlayStrength": "medium"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "grid"
+      }
+    }
+  },
+  {
+    "id": "forest-green",
+    "label": "Verde Campo",
+    "suitedTo": "Agronegócio, paisagismo, sustentabilidade",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 12,
+      "density": "regular",
+      "primaryColor": "#22703F",
+      "secondaryColor": "#12291C",
+      "accentColor": "#D8B44A",
+      "surfaceColor": "#F1F6F1",
+      "foregroundColor": "#10231A",
+      "mutedColor": "#556158",
+      "borderColor": "#DDE7DE",
+      "headingFont": "Fraunces",
+      "bodyFont": "Inter",
+      "archetype": "organic",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "large"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "clinic-teal",
+    "label": "Clínica Turquesa",
+    "suitedTo": "Saúde, odontologia, laboratórios",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 18,
+      "density": "spacious",
+      "primaryColor": "#0E8C8C",
+      "secondaryColor": "#0C2A2F",
+      "accentColor": "#63D6C4",
+      "surfaceColor": "#F0F8F8",
+      "foregroundColor": "#0E1F22",
+      "mutedColor": "#54666A",
+      "borderColor": "#DCEBEB",
+      "headingFont": "Manrope",
+      "bodyFont": "Inter",
+      "archetype": "minimal",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "legal-navy",
+    "label": "Jurídico Marinho",
+    "suitedTo": "Advocacia, contabilidade, consultoria",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 6,
+      "density": "spacious",
+      "primaryColor": "#12345C",
+      "secondaryColor": "#0A1A2C",
+      "accentColor": "#B99458",
+      "surfaceColor": "#F4F6F9",
+      "foregroundColor": "#0F1A26",
+      "mutedColor": "#5A6675",
+      "borderColor": "#E0E5EC",
+      "headingFont": "Playfair Display",
+      "bodyFont": "Source Sans 3",
+      "archetype": "corporate",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "landscape",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "bakery-amber",
+    "label": "Padaria Âmbar",
+    "suitedTo": "Panificadoras, cafeterias, confeitarias",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFF8F1",
+      "fontProvider": "google",
+      "radius": 20,
+      "density": "regular",
+      "primaryColor": "#B4521A",
+      "secondaryColor": "#3B2415",
+      "accentColor": "#EFAE3F",
+      "surfaceColor": "#FBF3E9",
+      "foregroundColor": "#2A1A11",
+      "mutedColor": "#6B584B",
+      "borderColor": "#EBDFD1",
+      "headingFont": "Bricolage Grotesque",
+      "bodyFont": "Inter",
+      "archetype": "organic",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "large"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "pet-coral",
+    "label": "Pet Coral",
+    "suitedTo": "Pet shops, clínicas veterinárias, banho e tosa",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 22,
+      "density": "regular",
+      "primaryColor": "#E2585F",
+      "secondaryColor": "#2C2138",
+      "accentColor": "#4FC1A6",
+      "surfaceColor": "#FDF3F3",
+      "foregroundColor": "#241C2B",
+      "mutedColor": "#69606F",
+      "borderColor": "#F2E2E2",
+      "headingFont": "Baloo 2",
+      "bodyFont": "Nunito Sans",
+      "archetype": "playful",
+      "geometry": {
+        "cardStyle": "elevated",
+        "borderWidth": 1,
+        "buttonRadius": "pill",
+        "imageRadius": "large"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "lift",
+        "header": "floating"
+      },
+      "motion": {
+        "intensity": "regular",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "industrial-steel",
+    "label": "Industrial Aço",
+    "suitedTo": "Metalurgia, usinagem, manutenção industrial",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 4,
+      "density": "compact",
+      "primaryColor": "#2F6BB0",
+      "secondaryColor": "#1A1F26",
+      "accentColor": "#F0A500",
+      "surfaceColor": "#F1F3F6",
+      "foregroundColor": "#141920",
+      "mutedColor": "#5A626D",
+      "borderColor": "#DFE3E9",
+      "headingFont": "Barlow Condensed",
+      "bodyFont": "Barlow",
+      "archetype": "industrial",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "none"
+      },
+      "layout": {
+        "container": "wide",
+        "gridStyle": "technical",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "high-contrast",
+        "preferredRatio": "landscape",
+        "overlayStrength": "medium"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "grid"
+      }
+    }
+  },
+  {
+    "id": "studio-mono",
+    "label": "Estúdio Monocromático",
+    "suitedTo": "Arquitetura, design, fotografia",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 0,
+      "density": "spacious",
+      "primaryColor": "#141414",
+      "secondaryColor": "#000000",
+      "accentColor": "#C8FF4D",
+      "surfaceColor": "#F4F4F4",
+      "foregroundColor": "#0D0D0D",
+      "mutedColor": "#5E5E5E",
+      "borderColor": "#E2E2E2",
+      "headingFont": "Space Grotesk",
+      "bodyFont": "Inter",
+      "archetype": "editorial",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "editorial",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "editorial",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "editorial"
+      }
+    }
+  },
+  {
+    "id": "beauty-plum",
+    "label": "Beleza Ameixa",
+    "suitedTo": "Salões, estética, bem-estar",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 16,
+      "density": "spacious",
+      "primaryColor": "#8A3E7A",
+      "secondaryColor": "#2B1B2A",
+      "accentColor": "#E8B4C8",
+      "surfaceColor": "#FAF3F8",
+      "foregroundColor": "#221722",
+      "mutedColor": "#6A5A69",
+      "borderColor": "#EEE0EA",
+      "headingFont": "Cormorant Garamond",
+      "bodyFont": "Jost",
+      "archetype": "luxury",
+      "geometry": {
+        "cardStyle": "elevated",
+        "borderWidth": 1,
+        "buttonRadius": "pill",
+        "imageRadius": "large"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "editorial",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "editorial",
+        "preferredRatio": "mixed",
+        "overlayStrength": "medium"
+      },
+      "elevation": {
+        "cards": "lift",
+        "header": "floating"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "editorial"
+      }
+    }
+  },
+  {
+    "id": "build-slate",
+    "label": "Construção Ardósia",
+    "suitedTo": "Construtoras, engenharia, reformas",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 6,
+      "density": "regular",
+      "primaryColor": "#C2410C",
+      "secondaryColor": "#1F2933",
+      "accentColor": "#FACC15",
+      "surfaceColor": "#F3F4F6",
+      "foregroundColor": "#151B22",
+      "mutedColor": "#586472",
+      "borderColor": "#E1E5EA",
+      "headingFont": "Oswald",
+      "bodyFont": "Inter",
+      "archetype": "industrial",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "none"
+      },
+      "layout": {
+        "container": "wide",
+        "gridStyle": "technical",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "high-contrast",
+        "preferredRatio": "landscape",
+        "overlayStrength": "medium"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "grid"
+      }
+    }
+  },
+  {
+    "id": "tech-violet",
+    "label": "Tech Violeta",
+    "suitedTo": "Software, TI, telecom",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 16,
+      "density": "regular",
+      "primaryColor": "#6D3BEB",
+      "secondaryColor": "#160E2E",
+      "accentColor": "#31E1B0",
+      "surfaceColor": "#F5F3FE",
+      "foregroundColor": "#120C24",
+      "mutedColor": "#5D5776",
+      "borderColor": "#E6E1F8",
+      "headingFont": "Sora",
+      "bodyFont": "Inter",
+      "archetype": "tech",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "landscape",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "regular",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "grid"
+      }
+    }
+  },
+  {
+    "id": "food-crimson",
+    "label": "Gastronomia Carmim",
+    "suitedTo": "Restaurantes, delivery, food service",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 18,
+      "density": "regular",
+      "primaryColor": "#C42B2B",
+      "secondaryColor": "#221310",
+      "accentColor": "#F2A33C",
+      "surfaceColor": "#FBF2EF",
+      "foregroundColor": "#1E120F",
+      "mutedColor": "#6B554F",
+      "borderColor": "#EFE0DA",
+      "headingFont": "Poppins",
+      "bodyFont": "Inter",
+      "archetype": "bold",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "high"
+      },
+      "imagery": {
+        "treatment": "high-contrast",
+        "preferredRatio": "mixed",
+        "overlayStrength": "medium"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "regular",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "system-neutral",
+    "label": "Neutro Sem Webfonts",
+    "suitedTo": "Máxima performance, zero fontes externas",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "system",
+      "radius": 8,
+      "density": "regular",
+      "primaryColor": "#1F2937",
+      "secondaryColor": "#111827",
+      "accentColor": "#0EA5E9",
+      "surfaceColor": "#F5F6F8",
+      "foregroundColor": "#111827",
+      "mutedColor": "#5A6472",
+      "borderColor": "#E4E7EB",
+      "headingFont": "system-ui",
+      "bodyFont": "system-ui",
+      "archetype": "minimal",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  },
+  {
+    "id": "barber-charcoal",
+    "label": "Barbearia Carvão",
+    "suitedTo": "Barbearias premium, grooming e estética masculina",
+    "design": {
+      "backgroundColor": "#F5F1EB",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 8,
+      "density": "spacious",
+      "primaryColor": "#A87945",
+      "secondaryColor": "#171513",
+      "accentColor": "#D8BE91",
+      "surfaceColor": "#ECE5DB",
+      "foregroundColor": "#1E1B18",
+      "mutedColor": "#6F675E",
+      "borderColor": "#DED5C9",
+      "headingFont": "Oswald",
+      "bodyFont": "Inter",
+      "archetype": "editorial",
+      "geometry": {
+        "cardStyle": "outlined",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "default",
+        "gridStyle": "editorial",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "editorial",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "soft",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "editorial"
+      }
+    }
+  },
+  {
+    "id": "tech-retail-blue",
+    "label": "Tecnologia Azul",
+    "suitedTo": "Lojas de informática, hardware, assistência e varejo tech",
+    "design": {
+      "backgroundColor": "#FFFFFF",
+      "primaryContrast": "#FFFFFF",
+      "fontProvider": "google",
+      "radius": 14,
+      "density": "regular",
+      "primaryColor": "#155EEF",
+      "secondaryColor": "#0B1637",
+      "accentColor": "#36D9F5",
+      "surfaceColor": "#F2F6FD",
+      "foregroundColor": "#111827",
+      "mutedColor": "#687386",
+      "borderColor": "#DCE5F3",
+      "headingFont": "Sora",
+      "bodyFont": "Inter",
+      "archetype": "catalog-first",
+      "geometry": {
+        "cardStyle": "elevated",
+        "borderWidth": 1,
+        "buttonRadius": "brand",
+        "imageRadius": "brand"
+      },
+      "layout": {
+        "container": "wide",
+        "gridStyle": "classic",
+        "sectionContrast": "medium"
+      },
+      "imagery": {
+        "treatment": "natural",
+        "preferredRatio": "mixed",
+        "overlayStrength": "soft"
+      },
+      "elevation": {
+        "cards": "lift",
+        "header": "subtle"
+      },
+      "motion": {
+        "intensity": "subtle",
+        "reveal": "fade-up",
+        "speed": "regular"
+      },
+      "backgrounds": {
+        "style": "clean"
+      }
+    }
+  }
+]

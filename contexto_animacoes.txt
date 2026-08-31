@@ -1,0 +1,353 @@
+﻿/* ============================================================
+   NEXORA MOTION LIBRARY
+   ------------------------------------------------------------
+   Small on purpose. Nine effects, all opacity/transform only, so
+   they never trigger layout and never hurt INP. Elements start in
+   their final state and are only offset once JS confirms support,
+   which means no flash of hidden content if scripts fail.
+   ============================================================ */
+
+[data-reveal] {
+  --nx-reveal-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal][data-reveal-ready="true"] {
+    opacity: 0;
+    transition:
+      opacity 500ms cubic-bezier(0.16, 1, 0.3, 1) var(--nx-reveal-delay),
+      transform 500ms cubic-bezier(0.16, 1, 0.3, 1) var(--nx-reveal-delay),
+      filter 500ms cubic-bezier(0.16, 1, 0.3, 1) var(--nx-reveal-delay);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal="fade-up"][data-reveal-ready="true"] { transform: translate3d(0, 24px, 0); }
+  [data-reveal="fade-down"][data-reveal-ready="true"] { transform: translate3d(0, -24px, 0); }
+  [data-reveal="fade-left"][data-reveal-ready="true"] { transform: translate3d(24px, 0, 0); }
+  [data-reveal="fade-right"][data-reveal-ready="true"] { transform: translate3d(-24px, 0, 0); }
+  [data-reveal="scale-in"][data-reveal-ready="true"] { transform: scale(0.96); }
+  [data-reveal="scale-up"][data-reveal-ready="true"] { transform: scale(0.95); }
+  [data-reveal="blur-in"][data-reveal-ready="true"] { filter: blur(8px); }
+
+  [data-reveal][data-reveal-visible="true"] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    will-change: auto;
+  }
+}
+
+/* Utility animation classes for TextReveal component */
+@keyframes animate-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animate-fade-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animate-fade-left {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animate-fade-right {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animate-scale-up {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up { animation: animate-fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-down { animation: animate-fade-down 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-left { animation: animate-fade-left 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-right { animation: animate-fade-right 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-scale-up { animation: animate-scale-up 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-down,
+  .animate-fade-left,
+  .animate-fade-right,
+  .animate-scale-up {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Header shrink + floating elements share one entrance curve. */
+@keyframes nx-pop-in {
+  from { opacity: 0; transform: translate3d(0, 0.75rem, 0) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes nx-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes nx-sheet-in {
+  from { opacity: 0; transform: translate3d(0, 1.5rem, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes nx-spin {
+  to { transform: rotate(360deg); }
+}
+
+.nx-anim-pop { animation: nx-pop-in var(--nx-duration) var(--nx-ease-out) both; }
+.nx-anim-overlay { animation: nx-overlay-in var(--nx-duration-fast) var(--nx-ease) both; }
+.nx-anim-sheet { animation: nx-sheet-in var(--nx-duration) var(--nx-ease-out) both; }
+.nx-anim-spin { animation: nx-spin 800ms linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nx-anim-pop,
+  .nx-anim-overlay,
+  .nx-anim-sheet {
+    animation: none;
+  }
+  .nx-anim-spin { animation-duration: 2s; }
+}
+"use client";
+
+import type { ElementType, ReactNode } from "react";
+import { useEffect } from "react";
+import { useInView } from "@/hooks/useInView";
+import { cn } from "@/utils/cn";
+
+export type RevealEffect = "fade-up" | "fade-down" | "fade-left" | "fade-right" | "scale-in" | "scale-up" | "blur-in";
+
+export interface RevealProps {
+  children: ReactNode;
+  effect?: RevealEffect;
+  /** Stagger position â€” multiplied by 70ms. Keep under 6 to avoid slow lists. */
+  index?: number;
+  /** Custom stagger multiplier in ms (default: 70). Use for hero or special cases. */
+  staggerMs?: number;
+  as?: ElementType;
+  className?: string;
+}
+
+/**
+ * Content is rendered in its final state on the server. The offset is only
+ * applied after mount, so a visitor with JS disabled â€” or a crawler â€” always
+ * sees the finished layout.
+ *
+ * `data-reveal-ready` is written straight to the DOM instead of through state:
+ * it is a one-way signal to CSS, not something React needs to re-render for.
+ */
+export function Reveal({ children, effect = "fade-up", index = 0, staggerMs = 70, as: Tag = "div", className }: RevealProps) {
+  const { ref, inView } = useInView<HTMLDivElement>();
+
+  useEffect(() => {
+    const node = ref.current;
+    if (node) node.dataset.revealReady = "true";
+  }, [ref]);
+
+  return (
+    <Tag
+      ref={ref}
+      data-reveal={effect}
+      data-reveal-ready="false"
+      data-reveal-visible={inView ? "true" : "false"}
+      style={{ "--nx-reveal-delay": `${Math.min(index, 6) * staggerMs}ms` } as React.CSSProperties}
+      className={cn(className)}
+    >
+      {children}
+    </Tag>
+  );
+}
+import { TransitionLink } from "./TransitionLink";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { Icon, type IconName } from "./Icon";
+import { cn } from "@/utils/cn";
+import { isExternalHref } from "@/utils/url";
+
+const VARIANTS = {
+  primary:
+    "bg-primary text-on-primary hover:bg-primary-strong shadow-soft hover:shadow-lift",
+  secondary: "bg-secondary text-on-dark hover:opacity-90",
+  outline: "border border-line-strong text-fg hover:border-primary hover:text-primary bg-transparent",
+  ghost: "text-fg hover:bg-secondary-soft bg-transparent",
+  light: "bg-bg text-fg hover:bg-surface shadow-soft",
+  accent: "bg-accent text-secondary hover:brightness-105",
+} as const;
+
+const SIZES = {
+  sm: "h-[var(--nx-control-sm)] px-4 text-sm gap-1.5",
+  md: "h-[var(--nx-control-md)] px-5 text-[0.95rem] gap-2",
+  lg: "h-[var(--nx-control-lg)] px-7 text-base gap-2.5",
+} as const;
+
+type BaseProps = {
+  children: ReactNode;
+  variant?: keyof typeof VARIANTS;
+  size?: keyof typeof SIZES;
+  icon?: IconName;
+  iconPosition?: "start" | "end";
+  fullWidth?: boolean;
+  className?: string;
+};
+
+/** Exported so wrappers that always render a link (WhatsApp, tel:) can narrow
+ * to the anchor half of the union instead of spreading the whole thing. */
+export type ButtonAnchorProps = BaseProps & { href: string } & Omit<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    "href" | "className" | "children"
+  >;
+
+type ButtonNativeProps = BaseProps & { href?: undefined } & Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    "className" | "children"
+  >;
+
+export type ButtonProps = ButtonAnchorProps | ButtonNativeProps;
+
+const base =
+  "inline-flex items-center justify-center rounded-[var(--nx-button-radius)] font-semibold " +
+  "relative overflow-hidden " +
+  "transition-[background-color,color,box-shadow,border-color,transform] duration-[var(--nx-duration-fast)] " +
+  "ease-brand active:scale-95 disabled:pointer-events-none disabled:opacity-55 " +
+  "min-h-[var(--nx-tap-min)] whitespace-nowrap " +
+  "before:absolute before:inset-0 before:-translate-x-full hover:before:translate-x-full " +
+  "before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent " +
+  "before:transition-transform before:duration-1000 before:ease-in-out";
+
+export function Button(props: ButtonProps) {
+  const {
+    children,
+    variant = "primary",
+    size = "md",
+    icon,
+    iconPosition = "end",
+    fullWidth,
+    className,
+    ...rest
+  } = props;
+
+  const classes = cn(base, VARIANTS[variant], SIZES[size], fullWidth && "w-full", className);
+  const content = (
+    <>
+      {icon && iconPosition === "start" && <Icon name={icon} size={18} />}
+      <span>{children}</span>
+      {icon && iconPosition === "end" && <Icon name={icon} size={18} />}
+    </>
+  );
+
+  if (typeof props.href === "string") {
+    const { href, ...anchorRest } = rest as ButtonAnchorProps;
+    if (isExternalHref(href)) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          {...anchorRest}
+        >
+          {content}
+        </a>
+      );
+    }
+    return (
+      <TransitionLink href={href} className={classes} {...anchorRest}>
+        {content}
+      </TransitionLink>
+    );
+  }
+
+  const { ...buttonRest } = rest as ButtonNativeProps;
+  return (
+    <button type="button" className={classes} {...buttonRest}>
+      {content}
+    </button>
+  );
+}
+import Image from "next/image";
+import type { MediaAsset } from "@/types/content";
+import { cn } from "@/utils/cn";
+
+const RATIOS = {
+  "21/9": "aspect-[21/9]",
+  "16/9": "aspect-[16/9]",
+  "3/2": "aspect-[3/2]",
+  "4/3": "aspect-[4/3]",
+  "1/1": "aspect-square",
+  "3/4": "aspect-[3/4]",
+  "9/16": "aspect-[9/16]",
+  auto: "",
+} as const;
+
+export interface SmartImageProps {
+  asset: MediaAsset;
+  /** The frame's ratio. The image is cropped to fill it â€” never stretched. */
+  ratio?: keyof typeof RATIOS;
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+  imageClassName?: string;
+  /** Applies to decorative art only; content images must keep their alt. */
+  decorative?: boolean;
+  /** Enable zoom and vignette effects on hover */
+  enableHoverEffects?: boolean;
+}
+
+/**
+ * The only way images enter the site. It reserves the aspect ratio before the
+ * file loads (CLS = 0), forces object-cover so nothing is ever distorted, and
+ * requires an explicit `sizes` for anything that is not full width.
+ */
+export function SmartImage({
+  asset,
+  ratio = "16/9",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px",
+  priority = false,
+  className,
+  imageClassName,
+  decorative = false,
+  enableHoverEffects = false,
+}: SmartImageProps) {
+  return (
+    <div className={cn("relative overflow-hidden bg-surface group", RATIOS[ratio], className)}>
+      <Image
+        src={asset.src}
+        alt={decorative ? "" : asset.alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        loading={priority ? undefined : "lazy"}
+        className={cn(
+          "object-cover transition-transform duration-700 ease-out",
+          enableHoverEffects && "group-hover:scale-105",
+          imageClassName
+        )}
+        aria-hidden={decorative || undefined}
+      />
+      {/* Vigneta overlay no hover */}
+      {enableHoverEffects && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      )}
+    </div>
+  );
+}
+"use client";
+
+import type { ReactNode } from "react";
+
+export interface PageWrapperProps {
+  children: ReactNode;
+  className?: string;
+}
+
+/**
+ * Wrapper simples para pÃ¡ginas.
+ * As transiÃ§Ãµes de pÃ¡gina sÃ£o gerenciadas pelo View Transition API no layout.tsx.
+ * Este componente serve apenas como um container opcional para estilos adicionais.
+ */
+export function PageWrapper({ children, className }: PageWrapperProps) {
+  return <div className={className}>{children}</div>;
+}

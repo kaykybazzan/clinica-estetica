@@ -1,0 +1,107 @@
+{
+  "id": "landscaping",
+  "label": "Paisagismo e áreas verdes",
+  "designPreset": "forest-green",
+  "businessType": "HomeAndConstructionBusiness",
+  "rationale": "O portfólio vende o serviço. Projetos, antes/depois, processo, manutenção recorrente e área atendida devem aparecer com clareza para transformar visita em pedido de orçamento.",
+  "sections": {
+    "hero": "hero-09",
+    "about": "about-05",
+    "services": "services-07",
+    "benefits": "benefits-06",
+    "stats": "stats-05",
+    "gallery": "gallery-05",
+    "testimonials": "testimonials-05",
+    "faq": "faq-04",
+    "cta": "cta-06",
+    "contact": "contact-06",
+    "footer": "footer-06"
+  },
+  "features": {
+    "projects": true,
+    "products": false,
+    "gallery": true,
+    "team": true,
+    "contactForm": true,
+    "announcementBar": false,
+    "catalogSearch": false,
+    "catalogFilters": false,
+    "catalogBrands": false
+  },
+  "pages": {
+    "projects": true,
+    "products": false,
+    "gallery": true,
+    "faq": true,
+    "testimonials": true
+  },
+  "strategy": {
+    "primaryConversion": "form",
+    "audience": "b2c",
+    "urgency": "low",
+    "salesCycle": "medium",
+    "localSeoImportance": "high",
+    "visualImportance": "critical",
+    "trustImportance": "high",
+    "technicalProofImportance": "high",
+    "notes": [
+      "Projetos e antes/depois antes de institucional"
+    ]
+  },
+  "composition": {
+    "home": [
+      {
+        "id": "hero",
+        "type": "hero"
+      },
+      {
+        "id": "projects",
+        "type": "projects",
+        "props": {
+          "limit": 3
+        }
+      },
+      {
+        "id": "services",
+        "type": "services",
+        "props": {
+          "limit": 6
+        }
+      },
+      {
+        "id": "benefits",
+        "type": "benefits"
+      },
+      {
+        "id": "gallery",
+        "type": "gallery",
+        "props": {
+          "limit": 8
+        }
+      },
+      {
+        "id": "testimonials",
+        "type": "testimonials"
+      },
+      {
+        "id": "about",
+        "type": "about"
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "props": {
+          "limit": 5
+        }
+      },
+      {
+        "id": "cta",
+        "type": "cta"
+      },
+      {
+        "id": "contact",
+        "type": "contact"
+      }
+    ]
+  }
+}

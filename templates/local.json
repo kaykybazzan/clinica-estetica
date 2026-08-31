@@ -1,0 +1,91 @@
+{
+  "id": "local",
+  "label": "Comércio e serviço local (padrão)",
+  "designPreset": "nexora-blue",
+  "businessType": "LocalBusiness",
+  "rationale": "Base neutra para qualquer negócio de bairro: serviços, prova social e contato. É o ponto de partida quando nenhum outro template descreve melhor o cliente.",
+  "sections": {
+    "hero": "hero-10",
+    "about": "about-05",
+    "services": "services-06",
+    "benefits": "benefits-05",
+    "stats": "stats-05",
+    "gallery": "gallery-06",
+    "testimonials": "testimonials-06",
+    "faq": "faq-04",
+    "cta": "cta-07",
+    "contact": "contact-06",
+    "footer": "footer-05"
+  },
+  "features": {
+    "gallery": true,
+    "team": false,
+    "projects": false,
+    "products": false
+  },
+  "pages": {
+    "products": false,
+    "projects": false,
+    "gallery": true,
+    "testimonials": true
+  },
+  "strategy": {
+    "primaryConversion": "whatsapp",
+    "audience": "b2c",
+    "urgency": "medium",
+    "salesCycle": "short",
+    "localSeoImportance": "critical",
+    "visualImportance": "medium",
+    "trustImportance": "high",
+    "technicalProofImportance": "medium",
+    "notes": [
+      "Prova social cedo",
+      "Contato e localização sem fricção"
+    ]
+  },
+  "composition": {
+    "home": [
+      {
+        "id": "hero",
+        "type": "hero"
+      },
+      {
+        "id": "benefits",
+        "type": "benefits"
+      },
+      {
+        "id": "services",
+        "type": "services",
+        "props": {
+          "limit": 6
+        }
+      },
+      {
+        "id": "testimonials",
+        "type": "testimonials"
+      },
+      {
+        "id": "gallery",
+        "type": "gallery",
+        "props": {
+          "limit": 8
+        }
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "props": {
+          "limit": 5
+        }
+      },
+      {
+        "id": "cta",
+        "type": "cta"
+      },
+      {
+        "id": "contact",
+        "type": "contact"
+      }
+    ]
+  }
+}

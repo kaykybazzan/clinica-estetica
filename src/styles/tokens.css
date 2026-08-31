@@ -1,0 +1,101 @@
+/* ============================================================
+   NEXORA DESIGN TOKENS
+   ------------------------------------------------------------
+   Every value the design system is allowed to use lives here.
+   Brand-level tokens (--nx-primary, fonts, radius, density) are
+   overridden per client by buildThemeCss() in src/config/theme.ts.
+   The values below are the NEXORA house identity and act as the
+   fallback whenever no client theme is injected.
+   ============================================================ */
+
+:root {
+  /* ---- Brand (overridable per client) ---- */
+  --nx-primary: #1b4fe0;
+  --nx-whatsapp: #25d366;
+  --nx-primary-contrast: #ffffff;
+  --nx-secondary: #0a1f44;
+  --nx-accent: #12d3e8;
+  --nx-bg: #ffffff;
+  --nx-surface: #f4f7fb;
+  --nx-fg: #0b1220;
+  --nx-muted: #5b6577;
+  --nx-border: #e3e8f0;
+  --nx-radius: 14px;
+  --nx-density: 1;
+  --nx-font-heading: "Sora", "Segoe UI", system-ui, sans-serif;
+  --nx-font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ---- Derived surfaces (never hardcode these) ---- */
+  --nx-primary-soft: color-mix(in oklab, var(--nx-primary) 12%, var(--nx-bg));
+  --nx-primary-strong: color-mix(in oklab, var(--nx-primary) 82%, black);
+  --nx-secondary-soft: color-mix(in oklab, var(--nx-secondary) 8%, var(--nx-bg));
+  --nx-accent-soft: color-mix(in oklab, var(--nx-accent) 16%, var(--nx-bg));
+  --nx-fg-soft: color-mix(in oklab, var(--nx-fg) 68%, var(--nx-bg));
+  --nx-border-strong: color-mix(in oklab, var(--nx-border) 60%, var(--nx-fg));
+  --nx-on-dark: color-mix(in oklab, white 88%, var(--nx-secondary));
+  --nx-on-dark-muted: color-mix(in oklab, white 62%, var(--nx-secondary));
+
+  /* ---- Containers ---- */
+  --nx-container-narrow: 46rem;   /*  736px — long-form reading  */
+  --nx-container: 75rem;          /* 1200px — default            */
+  --nx-container-wide: 90rem;     /* 1440px — full-bleed layouts */
+  --nx-gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Vertical rhythm (scaled by density) ---- */
+  --nx-section-y: calc(clamp(3.25rem, 5.5vw, 6rem) * var(--nx-density));
+  --nx-block-gap: calc(clamp(1.75rem, 3vw, 3rem) * var(--nx-density));
+
+  /* ---- Fluid type scale: one ramp from 360px to 1920px ---- */
+  --nx-text-display: clamp(2.5rem, 1.35rem + 4.8vw, 4.75rem);
+  --nx-text-h1: clamp(2rem, 1.3rem + 3vw, 3.375rem);
+  --nx-text-h2: clamp(1.625rem, 1.2rem + 1.9vw, 2.5rem);
+  --nx-text-h3: clamp(1.25rem, 1.08rem + 0.75vw, 1.625rem);
+  --nx-text-h4: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --nx-text-lead: clamp(1.0625rem, 1rem + 0.45vw, 1.25rem);
+  --nx-text-eyebrow: 0.8125rem;
+
+  /* ---- Elevation ---- */
+  --nx-shadow-soft: 0 1px 2px color-mix(in oklab, var(--nx-secondary) 8%, transparent),
+    0 8px 24px -12px color-mix(in oklab, var(--nx-secondary) 22%, transparent);
+  --nx-shadow-lift: 0 2px 6px color-mix(in oklab, var(--nx-secondary) 10%, transparent),
+    0 24px 48px -20px color-mix(in oklab, var(--nx-secondary) 32%, transparent);
+  --nx-shadow-inset: inset 0 1px 0 color-mix(in oklab, white 60%, transparent);
+
+  /* ---- Motion ---- */
+  --nx-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --nx-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nx-duration-fast: 140ms;
+  --nx-duration: 260ms;
+  --nx-duration-slow: 520ms;
+
+  /* ---- Stacking order: the only allowed z-index values ---- */
+  --nx-z-base: 0;
+  --nx-z-raised: 10;
+  --nx-z-sticky: 100;
+  --nx-z-header: 200;
+  --nx-z-floating: 300;
+  --nx-z-overlay: 400;
+  --nx-z-modal: 500;
+  --nx-z-toast: 600;
+  --nx-z-skiplink: 700;
+
+  /* ---- Control sizing (buttons, inputs, touch targets) ---- */
+  --nx-control-sm: 2.25rem;
+  --nx-control-md: 2.75rem;
+  --nx-control-lg: 3.25rem;
+  --nx-tap-min: 2.75rem; /* 44px — minimum accessible touch target */
+  --nx-header-h: 4.5rem;
+}
+
+/* ---- v3 Design DNA aliases (overridden by buildThemeCss) ---- */
+:root {
+  --nx-border-width: 1px;
+  --nx-card-radius: var(--nx-radius);
+  --nx-button-radius: var(--nx-radius);
+  --nx-card-shadow: var(--nx-shadow-soft);
+  --nx-card-padding: 1.4rem;
+  --nx-layout-container: var(--nx-container);
+  --nx-motion-duration: var(--nx-duration);
+  --nx-motion-distance: 12px;
+  --nx-image-radius: var(--nx-radius);
+}

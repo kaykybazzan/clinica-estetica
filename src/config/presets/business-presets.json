@@ -1,0 +1,135 @@
+[
+  {
+    "id": "pet-shop",
+    "label": "Pet shop",
+    "template": "pet",
+    "businessType": "PetStore"
+  },
+  {
+    "id": "veterinary",
+    "label": "Clínica veterinária",
+    "template": "pet",
+    "businessType": "VeterinaryCare"
+  },
+  {
+    "id": "restaurant",
+    "label": "Restaurante",
+    "template": "food",
+    "businessType": "Restaurant"
+  },
+  {
+    "id": "pizzeria",
+    "label": "Pizzaria",
+    "template": "food",
+    "businessType": "Restaurant"
+  },
+  {
+    "id": "workshop",
+    "label": "Oficina mecânica",
+    "template": "auto",
+    "businessType": "AutoRepair"
+  },
+  {
+    "id": "auto-electric",
+    "label": "Auto elétrica",
+    "template": "auto",
+    "businessType": "AutoRepair"
+  },
+  {
+    "id": "lawyer",
+    "label": "Advocacia",
+    "template": "professional",
+    "businessType": "LegalService"
+  },
+  {
+    "id": "accountant",
+    "label": "Contabilidade",
+    "template": "professional",
+    "businessType": "AccountingService"
+  },
+  {
+    "id": "real-estate",
+    "label": "Imobiliária / corretor",
+    "template": "professional",
+    "businessType": "RealEstateAgent"
+  },
+  {
+    "id": "clinic",
+    "label": "Clínica / consultório",
+    "template": "health",
+    "businessType": "MedicalClinic"
+  },
+  {
+    "id": "dentist",
+    "label": "Odontologia",
+    "template": "health",
+    "businessType": "Dentist"
+  },
+  {
+    "id": "industry",
+    "label": "Indústria / metalúrgica",
+    "template": "industrial",
+    "businessType": "LocalBusiness"
+  },
+  {
+    "id": "agriculture",
+    "label": "Agronegócio",
+    "template": "agriculture",
+    "businessType": "LocalBusiness"
+  },
+  {
+    "id": "local-business",
+    "label": "Comércio ou serviço local",
+    "template": "local",
+    "businessType": "LocalBusiness"
+  },
+  {
+    "id": "barbershop",
+    "label": "Barbearia",
+    "template": "beauty",
+    "businessType": "HealthAndBeautyBusiness",
+    "designPreset": "barber-charcoal"
+  },
+  {
+    "id": "hair-salon",
+    "label": "Salão de cabelo",
+    "template": "beauty",
+    "businessType": "HairSalon",
+    "designPreset": "beauty-plum"
+  },
+  {
+    "id": "beauty-salon",
+    "label": "Salão de beleza / estética",
+    "template": "beauty",
+    "businessType": "BeautySalon",
+    "designPreset": "beauty-plum"
+  },
+  {
+    "id": "landscaping",
+    "label": "Paisagismo",
+    "template": "landscaping",
+    "businessType": "HomeAndConstructionBusiness",
+    "designPreset": "forest-green"
+  },
+  {
+    "id": "garden-maintenance",
+    "label": "Jardinagem e manutenção de áreas verdes",
+    "template": "landscaping",
+    "businessType": "HomeAndConstructionBusiness",
+    "designPreset": "forest-green"
+  },
+  {
+    "id": "computer-store",
+    "label": "Loja de informática",
+    "template": "tech-retail",
+    "businessType": "ElectronicsStore",
+    "designPreset": "tech-retail-blue"
+  },
+  {
+    "id": "computer-repair",
+    "label": "Informática e assistência técnica",
+    "template": "tech-retail",
+    "businessType": "LocalBusiness",
+    "designPreset": "tech-retail-blue"
+  }
+]

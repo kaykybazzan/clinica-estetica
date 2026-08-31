@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" role="img" aria-label="Logotipo">
+  <!-- Logo de demonstração. Substitua pelo arquivo do cliente mantendo o nome. -->
+  <rect width="48" height="48" rx="11" fill="currentColor"/>
+  <path d="M13 15h22v6h-8v14h-6V21h-8z" fill="#FFFFFF"/>
+  <text x="60" y="32" font-family="Archivo, Inter, system-ui, sans-serif" font-size="21" font-weight="700" fill="currentColor">Torque Sete</text>
+</svg>

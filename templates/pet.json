@@ -1,0 +1,109 @@
+{
+  "id": "pet",
+  "label": "Pet shop e clínica veterinária",
+  "designPreset": "pet-coral",
+  "businessType": "PetStore",
+  "rationale": "O dono do animal decide pelo afeto e pela confiança. Fotos grandes, equipe visível e agendamento por WhatsApp pesam mais do que catálogo de preços.",
+  "sections": {
+    "hero": "hero-09",
+    "about": "about-06",
+    "services": "services-07",
+    "benefits": "benefits-06",
+    "stats": "stats-05",
+    "gallery": "gallery-06",
+    "testimonials": "testimonials-06",
+    "faq": "faq-04",
+    "cta": "cta-06",
+    "contact": "contact-05",
+    "footer": "footer-05"
+  },
+  "features": {
+    "gallery": true,
+    "team": true,
+    "products": true,
+    "projects": false,
+    "stats": true
+  },
+  "pages": {
+    "products": true,
+    "projects": false,
+    "gallery": true,
+    "testimonials": true
+  },
+  "strategy": {
+    "primaryConversion": "whatsapp",
+    "audience": "b2c",
+    "urgency": "medium",
+    "salesCycle": "short",
+    "localSeoImportance": "critical",
+    "visualImportance": "high",
+    "trustImportance": "critical",
+    "technicalProofImportance": "medium",
+    "notes": [
+      "Equipe, avaliações e imagens são decisivas"
+    ]
+  },
+  "composition": {
+    "home": [
+      {
+        "id": "hero",
+        "type": "hero"
+      },
+      {
+        "id": "benefits",
+        "type": "benefits"
+      },
+      {
+        "id": "services",
+        "type": "services",
+        "props": {
+          "limit": 6
+        }
+      },
+      {
+        "id": "team",
+        "type": "team",
+        "props": {
+          "limit": 4
+        }
+      },
+      {
+        "id": "products",
+        "type": "products",
+        "props": {
+          "limit": 4
+        }
+      },
+      {
+        "id": "gallery",
+        "type": "gallery",
+        "props": {
+          "limit": 8
+        }
+      },
+      {
+        "id": "testimonials",
+        "type": "testimonials"
+      },
+      {
+        "id": "stats",
+        "type": "stats"
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "props": {
+          "limit": 5
+        }
+      },
+      {
+        "id": "cta",
+        "type": "cta"
+      },
+      {
+        "id": "contact",
+        "type": "contact"
+      }
+    ]
+  }
+}

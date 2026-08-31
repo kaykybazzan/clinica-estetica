@@ -1,0 +1,65 @@
+{
+  "name": "atelier-estetica-nexora-v3",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run quality:fast && npm run build",
+    "create-client": "node scripts/create-client.mjs",
+    "check-images": "node scripts/check-images.mjs",
+    "audit:client": "node scripts/audit-client.mjs",
+    "test:generator": "node scripts/test-generator.mjs",
+    "validate": "npm run quality:full",
+    "predeploy": "npm run quality:full && npm run audit:client -- --strict",
+    "check-core-generic": "node scripts/check-core-generic.mjs",
+    "check-presets": "node scripts/check-presets.mjs",
+    "nexora": "node scripts/nexora.mjs",
+    "doctor": "node scripts/nexora.mjs doctor",
+    "media:audit": "node scripts/media-audit.mjs",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "check:composition": "node scripts/check-composition.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "npm run test:visual:update",
+    "test:a11y": "playwright test tests/a11y.spec.ts",
+    "lighthouse": "lhci autorun",
+    "quality:fast": "npm run lint && npm run typecheck && npm run check-images && npm run media:audit && npm run check-core-generic && npm run check:architecture && npm run check:composition && npm run check-presets",
+    "quality:full": "npm run quality:fast && npm run test:generator && npm run test:matrix && npm run build",
+    "catalog:export": "node scripts/export-catalog.mjs",
+    "setup:qa": "npm install --no-save --no-package-lock @playwright/test@1.55.0 @axe-core/playwright@4.10.2 @lhci/cli@0.15.1",
+    "test:matrix": "node scripts/test-matrix.mjs",
+    "test:visual": "playwright test tests/visual.spec.ts",
+    "test:visual:update": "playwright test tests/visual.spec.ts --update-snapshots"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "motion": "^13.1.1",
+    "next": "16.3.3",
+    "next-view-transitions": "^0.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "description": "Site modelo editorial de estética sobre a Nexora Website Platform v3",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "qaDependencies": {
+    "@playwright/test": "1.55.0",
+    "@axe-core/playwright": "4.10.2",
+    "@lhci/cli": "0.15.1"
+  }
+}

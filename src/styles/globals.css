@@ -1,0 +1,230 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./animations.css";
+
+/* ============================================================
+   TOKENS  ->  TAILWIND UTILITIES
+   `inline` makes every utility emit `var(--nx-*)` instead of a
+   frozen value, so swapping a client theme at runtime is enough
+   to restyle the whole site. Never add raw hex values below.
+   ============================================================ */
+@theme inline {
+  --color-bg: var(--nx-bg);
+  --color-surface: var(--nx-surface);
+  --color-fg: var(--nx-fg);
+  --color-fg-soft: var(--nx-fg-soft);
+  --color-muted: var(--nx-muted);
+  --color-line: var(--nx-border);
+  --color-line-strong: var(--nx-border-strong);
+  --color-primary: var(--nx-primary);
+  --color-primary-soft: var(--nx-primary-soft);
+  --color-primary-strong: var(--nx-primary-strong);
+  --color-on-primary: var(--nx-primary-contrast);
+  --color-secondary: var(--nx-secondary);
+  --color-secondary-soft: var(--nx-secondary-soft);
+  --color-accent: var(--nx-accent);
+  --color-accent-soft: var(--nx-accent-soft);
+  --color-on-dark: var(--nx-on-dark);
+  --color-on-dark-muted: var(--nx-on-dark-muted);
+
+  --font-heading: var(--nx-font-heading);
+  --font-body: var(--nx-font-body);
+
+  --text-display: var(--nx-text-display);
+  --text-h1: var(--nx-text-h1);
+  --text-h2: var(--nx-text-h2);
+  --text-h3: var(--nx-text-h3);
+  --text-h4: var(--nx-text-h4);
+  --text-lead: var(--nx-text-lead);
+  --text-eyebrow: var(--nx-text-eyebrow);
+
+  --radius-brand: var(--nx-radius);
+  --radius-brand-lg: calc(var(--nx-radius) * 1.6);
+  --radius-brand-sm: calc(var(--nx-radius) * 0.55);
+
+  --shadow-soft: var(--nx-shadow-soft);
+  --shadow-lift: var(--nx-shadow-lift);
+
+  --ease-brand: var(--nx-ease);
+  --ease-brand-out: var(--nx-ease-out);
+
+  /* Responsiveness strategy (docs/PADRAO-NEXORA.md):
+     360/390/430 -> base    768 -> md    1024 -> lg
+     1366 -> xl             1440 -> 2xl  1920 -> 3xl          */
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 90rem;
+  --breakpoint-3xl: 120rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nx-header-h) + 1rem);
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--nx-bg);
+    color: var(--nx-fg);
+    font-family: var(--nx-font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--nx-font-heading);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p { text-wrap: pretty; }
+
+  img, svg, video, canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 3px solid var(--nx-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--nx-primary) 22%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Skip link — visible only when focused, always first in the DOM. */
+  .nx-skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: var(--nx-z-skiplink);
+    transform: translateY(-160%);
+    background: var(--nx-primary);
+    color: var(--nx-primary-contrast);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--nx-radius);
+    font-weight: 600;
+    transition: transform var(--nx-duration-fast) var(--nx-ease);
+  }
+  .nx-skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  /* Prose block used by the legal pages. */
+  .nx-prose > * + * { margin-top: 1.1em; }
+  .nx-prose h2 { font-size: var(--nx-text-h3); margin-top: 2.25em; }
+  .nx-prose h3 { font-size: var(--nx-text-h4); margin-top: 1.75em; }
+  .nx-prose ul { padding-left: 1.35rem; list-style: disc; }
+  .nx-prose li + li { margin-top: 0.4em; }
+  .nx-prose a { color: var(--nx-primary); text-decoration: underline; text-underline-offset: 3px; }
+  .nx-prose strong { font-weight: 650; }
+
+  /* Hairline grid used as an ambient texture on dark sections. */
+  .nx-grid-texture {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, white 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, white 8%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-position: center;
+    mask-image: radial-gradient(ellipse at 50% 0%, black 10%, transparent 72%);
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* ============================================================
+   NEXORA v3 — Design DNA behaviors
+   ============================================================ */
+@layer base {
+  body[data-nx-archetype="industrial"] h1,
+  body[data-nx-archetype="industrial"] h2 { letter-spacing: -0.035em; }
+  body[data-nx-archetype="editorial"] h1,
+  body[data-nx-archetype="luxury"] h1 { letter-spacing: -0.045em; }
+  body[data-nx-archetype="playful"] { --nx-section-y: calc(clamp(3.5rem, 6vw, 6.5rem) * var(--nx-density)); }
+  body[data-nx-background="grid"] .nx-design-ambient {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--nx-border) 45%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--nx-border) 45%, transparent) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  body[data-nx-imagery="monochrome"] img { filter: grayscale(1); }
+  body[data-nx-imagery="high-contrast"] img { filter: contrast(1.04) saturate(1.03); }
+}
+
+/* ============================================================
+   VIEW TRANSITION API — Layer fix e animações de transição
+   ============================================================ */
+::view-transition-group(root) { z-index: auto; }
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+::view-transition-old(root) {
+  animation: fade-out-slide 0.4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  z-index: 1;
+}
+::view-transition-new(root) {
+  animation: fade-in-slide 0.4s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  z-index: 1;
+}
+
+@keyframes fade-out-slide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes fade-in-slide {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

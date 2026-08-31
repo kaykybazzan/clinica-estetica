@@ -1,0 +1,106 @@
+{
+  "id": "industrial",
+  "label": "Metalurgia, usinagem e manutenção industrial",
+  "designPreset": "industrial-steel",
+  "businessType": "LocalBusiness",
+  "rationale": "Venda B2B com ciclo longo. Capacidade instalada, certificações e cases valem mais do que apelo emocional; o formulário alimenta o comercial.",
+  "sections": {
+    "hero": "hero-08",
+    "about": "about-05",
+    "services": "services-08",
+    "benefits": "benefits-06",
+    "stats": "stats-04",
+    "gallery": "gallery-05",
+    "testimonials": "testimonials-05",
+    "faq": "faq-05",
+    "cta": "cta-06",
+    "contact": "contact-05",
+    "footer": "footer-06"
+  },
+  "features": {
+    "projects": true,
+    "products": true,
+    "gallery": true,
+    "team": false,
+    "cookieBanner": true
+  },
+  "pages": {
+    "projects": true,
+    "products": true,
+    "gallery": true,
+    "testimonials": true
+  },
+  "strategy": {
+    "primaryConversion": "form",
+    "audience": "b2b",
+    "urgency": "low",
+    "salesCycle": "long",
+    "localSeoImportance": "medium",
+    "visualImportance": "medium",
+    "trustImportance": "critical",
+    "technicalProofImportance": "critical",
+    "notes": [
+      "Capacidade, números, projetos e especificações primeiro"
+    ]
+  },
+  "composition": {
+    "home": [
+      {
+        "id": "hero",
+        "type": "hero"
+      },
+      {
+        "id": "stats",
+        "type": "stats"
+      },
+      {
+        "id": "services",
+        "type": "services",
+        "props": {
+          "limit": 6
+        }
+      },
+      {
+        "id": "benefits",
+        "type": "benefits"
+      },
+      {
+        "id": "projects",
+        "type": "projects",
+        "props": {
+          "limit": 3
+        }
+      },
+      {
+        "id": "products",
+        "type": "products",
+        "props": {
+          "limit": 4
+        }
+      },
+      {
+        "id": "about",
+        "type": "about"
+      },
+      {
+        "id": "testimonials",
+        "type": "testimonials"
+      },
+      {
+        "id": "faq",
+        "type": "faq",
+        "props": {
+          "limit": 5
+        }
+      },
+      {
+        "id": "cta",
+        "type": "cta"
+      },
+      {
+        "id": "contact",
+        "type": "contact"
+      }
+    ]
+  }
+}
