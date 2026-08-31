@@ -79,7 +79,7 @@ export function MobileMenu({ open, onClose, items }: MobileMenuProps) {
         <div className="border-t border-line px-5 py-5">
           <MobilePrimaryAction onClose={onClose} />
           {clientConfig.contact.phone && (
-            <a href={telHref(clientConfig.contact.phone)} className="mt-3 flex min-h-[var(--nx-tap-min)] items-center justify-center gap-2 text-sm font-semibold text-fg-soft">
+            <a href={telHref(clientConfig.contact.phone)} className="mt-3 flex min-h-[var(--nx-tap-min)] items-center justify-center gap-2 text-sm font-semibold text-fg-soft active:scale-95 transition-transform">
               <Icon name="phone" size={16} />{clientConfig.contact.phone}
             </a>
           )}

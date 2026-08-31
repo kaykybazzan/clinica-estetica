@@ -1,59 +1,39 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { cn } from "@/utils/cn";
+import type { ReactNode } from "react";
 
-export interface PageTransitionProps {
-  children: React.ReactNode;
+interface PageTransitionProps {
+  children: ReactNode;
   className?: string;
 }
 
-/**
- * Wrapper para transições de página suaves.
- * Aplica fade + translateY ao trocar de rota para evitar corte brusco.
- * Respeita prefers-reduced-motion.
- */
-export function PageTransition({ children, className }: PageTransitionProps) {
+export function PageTransition({ children, className = "" }: PageTransitionProps) {
   const pathname = usePathname();
-  const [, startTransition] = useTransition();
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    startTransition(() => {
-      setIsAnimating(true);
-    });
-
-    const timer = setTimeout(() => setIsAnimating(false), 600);
-    return () => clearTimeout(timer);
-  }, [pathname, prefersReducedMotion]);
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
 
   return (
-    <div
-      className={cn(
-        "transition-all duration-600 ease-out",
-        isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0",
-        className
-      )}
-    >
-      {children}
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div key={pathname} className={`relative w-full min-h-screen ${className}`}>
+        {/* Overlay de Vinheta Suave durante a Troca de Rota */}
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 1 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none fixed inset-0 z-50 bg-neutral-950/20 backdrop-blur-[2px]"
+        />
+
+        {/* Conteúdo da Página com Entrada Elegante */}
+        <motion.div
+          initial={{ opacity: 0, y: 12, scale: 0.99 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -12, scale: 0.99 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

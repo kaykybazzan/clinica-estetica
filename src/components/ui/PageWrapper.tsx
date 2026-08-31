@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { PageTransition } from "./PageTransition";
 
 export interface PageWrapperProps {
   children: ReactNode;
@@ -8,10 +9,13 @@ export interface PageWrapperProps {
 }
 
 /**
- * Wrapper simples para páginas.
- * As transições de página são gerenciadas pelo View Transition API no layout.tsx.
- * Este componente serve apenas como um container opcional para estilos adicionais.
+ * Wrapper para páginas com transições suaves.
+ * Aplica PageTransition para animações de entrada/saída entre rotas.
  */
 export function PageWrapper({ children, className }: PageWrapperProps) {
-  return <div className={className}>{children}</div>;
+  return (
+    <PageTransition className={className}>
+      {children}
+    </PageTransition>
+  );
 }

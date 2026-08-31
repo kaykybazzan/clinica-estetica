@@ -1,8 +1,0 @@
-{
-  "sourceOfTruth": "src/config/client.schema.ts",
-  "platformVersion": "3.0.0",
-  "clientOwned": ["src/config/client.config.ts", "src/data/**", "public/**"],
-  "requiredTopLevel": ["platformVersion", "slug", "segment", "company", "contact", "address", "social", "businessHours", "strategy", "design", "sections", "composition", "features", "pages", "mobileConversion", "seo", "legal"],
-  "blockTypes": ["hero", "benefits", "services", "products", "projects", "team", "stats", "about", "gallery", "testimonials", "faq", "cta", "contact"],
-  "qualityCommands": ["npm run doctor", "npm run quality:full", "npm run test:e2e", "npm run lighthouse", "npm run audit:client -- --strict"]
-}

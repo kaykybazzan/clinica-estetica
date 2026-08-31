@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import { withHome } from "@/seo/breadcrumbs";
+import { SmoothText } from "@/components/ui/SmoothText";
 import type { Crumb } from "@/seo/breadcrumbs";
 
 export interface PageHeaderProps {
@@ -23,11 +24,21 @@ export function PageHeader({ eyebrow, title, lead, trail }: PageHeaderProps) {
     <Section tone="surface" className="py-10 lg:py-14">
       <Container>
         <Breadcrumb trail={full} />
-        {eyebrow && <Eyebrow className="mt-6">{eyebrow}</Eyebrow>}
-        <Heading level={1} size="h1" className="mt-3 max-w-3xl">
-          {title}
-        </Heading>
-        {lead && <Lead className="mt-4 max-w-2xl">{lead}</Lead>}
+        {eyebrow && (
+          <SmoothText delay={0.1}>
+            <Eyebrow className="mt-6">{eyebrow}</Eyebrow>
+          </SmoothText>
+        )}
+        <SmoothText delay={0.2}>
+          <Heading level={1} size="h1" className="mt-3 max-w-3xl">
+            {title}
+          </Heading>
+        </SmoothText>
+        {lead && (
+          <SmoothText delay={0.3}>
+            <Lead className="mt-4 max-w-2xl">{lead}</Lead>
+          </SmoothText>
+        )}
       </Container>
       <JsonLd data={breadcrumbSchema(full)} id="nx-breadcrumb" />
     </Section>

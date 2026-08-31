@@ -1,7 +1,7 @@
 "use client";
 
 import type { ElementType, ReactNode } from "react";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useInView } from "@/hooks/useInView";
 import { cn } from "@/utils/cn";
 
@@ -16,6 +16,14 @@ export interface RevealProps {
   className?: string;
 }
 
+/**
+ * Content is rendered in its final state on the server. The offset is only
+ * applied after mount, so a visitor with JS disabled — or a crawler — always
+ * sees the finished layout.
+ *
+ * `data-reveal-ready` is written straight to the DOM instead of through state:
+ * it is a one-way signal to CSS, not something React needs to re-render for.
+ */
 export function Reveal({
   children,
   effect = "fade-up",
@@ -27,10 +35,16 @@ export function Reveal({
   const options = useMemo(() => ({}), []);
   const { ref, inView } = useInView<HTMLDivElement>(options);
 
+  useEffect(() => {
+    const node = ref.current;
+    if (node) node.dataset.revealReady = "true";
+  }, [ref]);
+
   return (
     <Tag
       ref={ref}
       data-reveal={effect}
+      data-reveal-ready="false"
       data-reveal-visible={inView ? "true" : "false"}
       style={{ "--nx-reveal-delay": `${Math.min(index, 6) * staggerMs}ms` } as React.CSSProperties}
       className={cn(className)}

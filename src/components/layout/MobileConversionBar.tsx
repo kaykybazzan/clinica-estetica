@@ -36,7 +36,7 @@ export function MobileConversionBar() {
               href={meta.href()}
               target={action === "whatsapp" || action === "directions" ? "_blank" : undefined}
               rel={action === "whatsapp" || action === "directions" ? "noopener noreferrer" : undefined}
-              className={`flex min-h-[3.5rem] items-center justify-center gap-2 px-2 text-center text-xs font-bold ${index ? "border-l border-line" : ""}`}
+              className={`flex min-h-[3.5rem] items-center justify-center gap-2 px-2 text-center text-xs font-bold active:scale-95 transition-transform ${index ? "border-l border-line" : ""}`}
             >
               <Icon name={meta.icon} size={18} />
               <span>{meta.label}</span>

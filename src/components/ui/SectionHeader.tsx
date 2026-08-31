@@ -1,5 +1,6 @@
 import { Eyebrow, Heading, Lead } from "./Heading";
 import { cn } from "@/utils/cn";
+import { SmoothText } from "./SmoothText";
 
 export interface SectionHeaderProps {
   eyebrow?: string;
@@ -33,11 +34,21 @@ export function SectionHeader({
         className,
       )}
     >
-      {eyebrow && <Eyebrow className={dark ? "text-accent" : undefined}>{eyebrow}</Eyebrow>}
-      <Heading id={id} level={level} className={cn("max-w-2xl", dark && "text-on-dark")}>
-        {title}
-      </Heading>
-      {lead && <Lead className={cn("max-w-2xl", dark && "text-on-dark-muted")}>{lead}</Lead>}
+      {eyebrow && (
+        <SmoothText delay={0.1}>
+          <Eyebrow className={dark ? "text-accent" : undefined}>{eyebrow}</Eyebrow>
+        </SmoothText>
+      )}
+      <SmoothText delay={0.2}>
+        <Heading id={id} level={level} className={cn("max-w-2xl", dark && "text-on-dark")}>
+          {title}
+        </Heading>
+      </SmoothText>
+      {lead && (
+        <SmoothText delay={0.3}>
+          <Lead className={cn("max-w-2xl", dark && "text-on-dark-muted")}>{lead}</Lead>
+        </SmoothText>
+      )}
     </div>
   );
 }
