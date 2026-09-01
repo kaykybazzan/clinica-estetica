@@ -31,7 +31,7 @@ export function AtelierHero(props: Record<string, unknown>) {
   const id = typeof props.id === "string" ? props.id : "inicio";
   return (
     <Section id={id} flush className="isolate overflow-hidden border-b border-line bg-bg">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[8%] -z-10 select-none overflow-hidden">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[2%] -z-10 select-none overflow-hidden">
         <p className="translate-x-[-.04em] whitespace-nowrap font-heading text-[clamp(8rem,24vw,27rem)] font-medium leading-[.72] tracking-[-.075em] text-primary/[.075]">
           PELE
         </p>
@@ -82,7 +82,7 @@ export function AtelierHero(props: Record<string, unknown>) {
           </SmoothText>
         </Reveal>
 
-        <div className="relative min-h-[28rem] md:min-h-[34rem] lg:min-h-[calc(100svh-8rem)] order-1 lg:order-2">
+        <div className="relative min-h-[36rem] md:min-h-[34rem] lg:min-h-[calc(100svh-8rem)] order-1 lg:order-2">
           <Reveal effect="scale-in" className="absolute bottom-[4%] right-[2%] top-[1%] w-[72%] md:w-[66%] lg:w-[68%]">
             <SmartImage
               asset={heroImage}
@@ -94,20 +94,20 @@ export function AtelierHero(props: Record<string, unknown>) {
             />
           </Reveal>
 
-          <Reveal effect="fade-up" index={1} staggerMs={140} className="absolute bottom-[7%] left-[1%] w-[35%] md:w-[31%] lg:left-[4%] lg:w-[29%]">
+          <Reveal effect="fade-up" index={1} staggerMs={140} className="absolute bottom-[2%] left-[1%] w-[35%] md:w-[31%] lg:left-[4%] lg:w-[29%]">
             <div className="border border-line bg-bg p-2 shadow-soft">
               <SmartImage asset={detailImage} ratio="3/4" sizes="(max-width: 1024px) 32vw, 18vw" className="rounded-none" />
-              <p className="px-1 pb-1 pt-3 text-[0.7rem] font-semibold uppercase tracking-[.18em] text-fg-soft sm:text-[0.72rem]">objetos / ritual / detalhe</p>
+              <p className="px-1 pb-1 pt-2 pb-2 text-[0.7rem] font-semibold uppercase tracking-[.18em] text-fg-soft sm:text-[0.72rem]">objetos / ritual / detalhe</p>
             </div>
           </Reveal>
 
-          <Reveal effect="fade-left" index={2} staggerMs={140} className="absolute right-[0] top-[8%] w-[24%] md:w-[21%] lg:right-[-1%] lg:w-[19%]">
+          <Reveal effect="fade-left" index={2} staggerMs={140} className="absolute right-[0] top-[2%] w-[24%] md:w-[21%] lg:right-[-1%] lg:w-[19%]">
             <div className="border border-line bg-bg p-2 shadow-soft">
               <SmartImage asset={textureImage} ratio="1/1" sizes="(max-width: 1024px) 24vw, 12vw" className="rounded-none" />
             </div>
           </Reveal>
 
-          <div className="absolute bottom-[2%] right-[2%] z-20 flex items-center gap-2 bg-secondary px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[.16em] text-on-dark sm:gap-3 sm:px-4 sm:py-3 sm:text-xs">
+          <div className="absolute bottom-[2%] right-[2%] z-20 flex items-center gap-4 bg-secondary px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[.16em] text-on-dark sm:gap-3 sm:px-4 sm:py-3 sm:text-xs">
             <span className="size-1.5 rounded-full bg-accent sm:size-2" />
             <span className="hidden sm:inline">beleza sem pressa</span>
             <span className="sm:hidden">beleza</span>
